@@ -75,7 +75,7 @@ articleView.setTeasers = () => {
 };
 
 // COMMENT: When/where is this function invoked? What event ultimately triggers its execution? Explain the sequence of code execution when this function is invoked.
-// PUT YOUR RESPONSE HERE
+// this is being called whenever the user enters the new.html page to display the new article submission layout. It should be the last thing rendered/called on the new.html page load.
 articleView.initNewArticlePage = () => {
   $('.tab-content').show();
   $('#export-field').hide();
@@ -88,7 +88,7 @@ articleView.initNewArticlePage = () => {
 };
 
 // COMMENT: When is this function called? What event ultimately triggers its execution?
-// PUT YOUR RESPONSE HERE
+// THis function should be called inside initNewArticlePage(). It should trigger this function when user creates a new article by pressing the submit button
 articleView.create = () => {
   let article;
   $('#articles').empty();
@@ -113,7 +113,7 @@ articleView.create = () => {
 };
 
 // COMMENT: When is this function called? What event ultimately triggers its execution?
-// PUT YOUR RESPONSE HERE
+// it is called when the 'submit' button on the new.html page is pressed, and is called within the initNewArticlePage method.
 articleView.submit = event => {
   event.preventDefault();
   let article = new Article({
@@ -126,7 +126,7 @@ articleView.submit = event => {
   });
 
   // COMMENT: Where is this function defined? When is this function called? What event ultimately triggers its execution?
-  // PUT YOUR RESPONSE HERE
+  // its defined on the article.js. Once a new article is submitted, it triggers the callback function, and this will store it into the 'database' and eventually be rendered on the main articles page.
   article.insertRecord();
 }
 
